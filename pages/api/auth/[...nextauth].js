@@ -28,8 +28,6 @@ export default NextAuth({
       clientId: process.env.NEXT_PUBLIC_IDP_CLIENT_ID,
       clientSecret: process.env.NEXT_PUBLIC_IDP_CLIENT_SECRET,
       checks: ["state"],
-      signinUrl: "https://idp-nextjs-test.netlify.app/api/auth/signin/idp",
-      callbackUrl: "https://idp-nextjs-test.netlify.app/api/auth/callback/idp",
     },
   ],
   secret: process.env.SECRET,
