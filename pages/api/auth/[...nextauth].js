@@ -17,7 +17,7 @@ export default NextAuth({
       accessTokenUrl:
         "https://idpsesiont.telecom.com.ar/openam/oauth2/realms/convergente/access_token",
       requestTokenUrl:
-        "https://idpsesiont.telecom.com.ar/openam/oauth2/realms/convergente/connect/jwk_uri",
+        "https://idpsesiont.telecom.com.ar/openam/oauth2/realms/convergente/authorize",
       profileUrl:
         "https://idpsesiont.telecom.com.ar:443/openam/oauth2/convergente/userinfo",
       profile(profile) {
