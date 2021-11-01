@@ -21,7 +21,7 @@ export default function Home() {
           Not signed in
           <button
             onClick={() =>
-              signIn("idp", {
+              signIn(null, {
                 callbackUrl: "https://idp-nextjs-test.netlify.app/dashboard",
               })
             }
