@@ -19,7 +19,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       Not signed in
-      <button onClick={() => signIn()}>Login auth</button>
+      <button
+        onClick={() =>
+          signIn(null, {
+            callbackUrl:
+              "https://idpsesion.telecom.com.ar/openam/oauth2/realms/convergente/authorize?response_type=code",
+          })
+        }
+      >
+        Login auth
+      </button>
     </div>
   );
 }
