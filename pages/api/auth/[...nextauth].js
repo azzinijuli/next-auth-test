@@ -20,7 +20,7 @@ export default NextAuth({
         "https://idpsesiont.telecom.com.ar/openam/oauth2/realms/convergente/authorize",
       profileUrl:
         "https://idpsesiont.telecom.com.ar:443/openam/oauth2/convergente/userinfo",
-      profile(profile) {
+      async profile(profile) {
         console.log(profile);
         return {
           id: profile.id,
