@@ -19,15 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       Not signed in
-      <button
-        onClick={() =>
-          signIn("idp", {
-            callbackUrl: "https://idp-nextjs-test.netlify.app",
-          })
-        }
-      >
-        Login auth
-      </button>
+      <button onClick={() => signIn()}>Login auth</button>
     </div>
   );
 }
