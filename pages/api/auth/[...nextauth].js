@@ -26,8 +26,8 @@ export default NextAuth({
           id: profile.id,
         };
       },
-      clientId: process.env.QUOT_ID,
-      clientSecret: process.env.QUOT_SECRET,
+      clientId: process.env.NEXT_PUBLIC_IDP_CLIENT_ID,
+      clientSecret: process.env.NEXT_PUBLIC_IDP_CLIENT_SECRET,
     },
   ],
 });
