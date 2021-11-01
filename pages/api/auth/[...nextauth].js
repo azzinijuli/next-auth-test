@@ -3,8 +3,8 @@ import NextAuth from "next-auth/next";
 export default NextAuth({
   providers: [
     {
-      id: "kakao",
-      name: "Kakao",
+      id: "idp",
+      name: "Portal Unificado",
       type: "oauth",
       authorization:
         "https://idpsesiont.telecom.com.ar/openam/oauth2/realms/convergente/authorize",

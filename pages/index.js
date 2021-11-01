@@ -22,8 +22,7 @@ export default function Home() {
       <button
         onClick={() =>
           signIn(null, {
-            callbackUrl:
-              "https://idpsesion.telecom.com.ar/openam/oauth2/realms/convergente/authorize?response_type=code",
+            callbackUrl: "https://idp-nextjs-test.netlify.app",
           })
         }
       >
