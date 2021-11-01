@@ -27,17 +27,14 @@ export default NextAuth({
       },
       clientId: process.env.NEXT_PUBLIC_IDP_CLIENT_ID,
       clientSecret: process.env.NEXT_PUBLIC_IDP_CLIENT_SECRET,
-      checks: ["state"],
     },
   ],
-  secret: process.env.SECRET,
   debug: true,
   session: {
     jwt: true,
     maxAge: 60 * 5,
   },
   jwt: {
-    secret: process.env.SECRET,
     encryption: false,
   },
   callbacks: {
