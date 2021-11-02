@@ -13,7 +13,7 @@ export default NextAuth({
       userinfo:
         "https://idpsesiont.telecom.com.ar:443/openam/oauth2/convergente/userinfo",
       async profile(profile) {
-        console.log(profile);
+        console.log("perfil", profile);
       },
       clientId: process.env.NEXT_PUBLIC_IDP_CLIENT_ID,
       clientSecret: process.env.NEXT_PUBLIC_IDP_CLIENT_SECRET,
@@ -31,23 +31,23 @@ export default NextAuth({
   },
   callbacks: {
     async signin(user, account, profile) {
-      console.log("user", user, account, profile);
+      console.log("usuario", user, account, profile);
       return true;
     },
     async jwt(token, user, account, profile, isNewUser) {
-      console.log(token);
-      console.log(user);
-      console.log(account);
-      console.log(profile);
-      console.log(isNewUser);
+      console.log("token", token);
+      console.log("usuario", user);
+      console.log("cuenta", account);
+      console.log("perfil", profile);
+      console.log("usuario nuevo", isNewUser);
       if (account.accessToken) {
         token.accessToken = account.accessToken;
       }
       return Promise.resolve(token);
     },
     async session(session, token) {
-      console.log(session);
-      console.log(token);
+      console.log("sesion", session);
+      console.log("token", token);
       return session;
     },
   },
