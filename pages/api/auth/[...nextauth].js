@@ -16,6 +16,7 @@ export default NextAuth({
         console.log("tokens", tokens);
         return {
           id: profile.sub,
+          name: profile.sub,
         };
       },
       clientId: process.env.NEXT_PUBLIC_IDP_CLIENT_ID,

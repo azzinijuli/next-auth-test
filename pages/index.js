@@ -5,7 +5,7 @@ export default function Component() {
   if (session) {
     return (
       <>
-        Signed in as {session.user} <br />
+        Signed in as {session.user.name} <br />
         <button onClick={() => signOut()}>Sign out</button>
       </>
     );
@@ -13,15 +13,7 @@ export default function Component() {
   return (
     <>
       Not signed in <br />
-      <button
-        onClick={() =>
-          signIn("idp", {
-            callbackUrl: "https://idp-nextjs-test.netlify.app",
-          })
-        }
-      >
-        Sign in
-      </button>
+      <button onClick={() => signIn("idp")}>Sign in</button>
     </>
   );
 }
