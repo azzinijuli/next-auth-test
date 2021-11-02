@@ -7,10 +7,7 @@ export default NextAuth({
       name: "idp",
       type: "oauth",
       version: "2.0",
-      scope: "openid email",
-      state: true,
-      protection: "state",
-      params: { grant_type: "authorization_code" },
+      authorization: { params: { scope: "openid profile" } },
       idToken: true,
       wellKnown:
         "https://idpsesiont.telecom.com.ar/openam/oauth2/realms/convergente/.well-known/openid-configuration",
@@ -18,7 +15,7 @@ export default NextAuth({
         console.log("perfil", profile);
         console.log("tokens", tokens);
         return {
-          id: profile.id,
+          id: profile.sub,
         };
       },
       clientId: process.env.NEXT_PUBLIC_IDP_CLIENT_ID,
