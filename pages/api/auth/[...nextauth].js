@@ -4,7 +4,7 @@ export default NextAuth({
   providers: [
     {
       id: "idp",
-      name: "Portal Unificado",
+      name: "idp",
       type: "oauth",
       version: "2.0",
       scope: "openid email",
