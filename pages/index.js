@@ -15,7 +15,9 @@ export default function Component() {
       Not signed in <br />
       <button
         onClick={() =>
-          signIn(null, { callbackUrl: "https://idp-nextjs-test.netlify.app" })
+          signIn("Portal Unificado", {
+            callbackUrl: "https://idp-nextjs-test.netlify.app",
+          })
         }
       >
         Sign in
