@@ -1,4 +1,5 @@
 import NextAuth from "next-auth/next";
+import { getToken } from "next-auth/jwt";
 
 export default NextAuth({
   providers: [
@@ -34,21 +35,14 @@ export default NextAuth({
       console.log("usuario", user, account, profile);
       return true;
     },
-    async jwt(token, user, account, profile, isNewUser) {
-      console.log("token", token);
-      console.log("usuario", user);
-      console.log("cuenta", account);
-      console.log("perfil", profile);
-      console.log("usuario nuevo", isNewUser);
-      if (account.accessToken) {
-        token.accessToken = account.accessToken;
+    async jwt({ token, account }) {
+      // Persist the OAuth access_token to the token right after signin
+      if (account) {
+        token.accessToken = account.access_token;
       }
-      return Promise.resolve(token);
-    },
-    async session(session, token) {
-      console.log("sesion", session);
-      console.log("token", token);
-      return session;
+      console.log("el token", token);
+      console.log("el access token", account.access_token);
+      return token;
     },
   },
 });
