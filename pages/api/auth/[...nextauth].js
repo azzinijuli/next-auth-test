@@ -25,35 +25,17 @@ export default NextAuth({
       clientSecret: process.env.NEXT_PUBLIC_IDP_CLIENT_SECRET,
     },
   ],
-  secret: process.env.SECRET,
-  debug: true,
-  session: {
-    jwt: true,
-    maxAge: 60 * 5,
-  },
-  jwt: {
-    secret: process.env.SECRET,
-    encryption: false,
-  },
   callbacks: {
-    async signin(user, account, profile) {
-      console.log("user", user, account, profile);
-      return true;
-    },
-    async jwt(token, user, account, profile, isNewUser) {
-      console.log(token);
-      console.log(user);
-      console.log(account);
-      console.log(profile);
-      console.log(isNewUser);
-      if (account.accessToken) {
-        token.accessToken = account.accessToken;
+    async jwt({ token, account }) {
+      // Persist the OAuth access_token to the token right after signin
+      if (account) {
+        token.accessToken = account.access_token;
       }
-      return Promise.resolve(token);
+      return token;
     },
-    async session(session, token) {
-      console.log(session);
-      console.log(token);
+    async session({ session, token, user }) {
+      // Send properties to the client, like an access_token from a provider.
+      session.accessToken = token.accessToken;
       return session;
     },
   },
