@@ -22,7 +22,7 @@ export default function Home() {
           <button
             onClick={() =>
               signIn("idp", {
-                callbackUrl: "https://idp-nextjs-test.netlify.app/dashboard",
+                callbackUrl: "https://idp-nextjs-test.netlify.app",
               })
             }
           >
