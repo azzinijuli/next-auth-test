@@ -12,8 +12,6 @@ export default NextAuth({
       wellKnown:
         "https://idpsesiont.telecom.com.ar/openam/oauth2/realms/convergente/.well-known/openid-configuration",
       profile(profile, tokens) {
-        console.log("perfil", profile);
-        console.log("tokens", tokens);
         return {
           id: profile.sub,
           name: profile.sub,
