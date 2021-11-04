@@ -23,6 +23,7 @@ export default function Component() {
       <>
         Signed in as {session.user.name} <br />
         <button onClick={() => signOut()}>Sign out</button>
+        <button onClick={() => fetchData()}>Consulta</button>
       </>
     );
   }
