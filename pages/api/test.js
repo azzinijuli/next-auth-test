@@ -33,8 +33,8 @@
 import { useSession, getSession } from "next-auth/react";
 
 export default function Page() {
-  console.log(session);
   const { data: session } = useSession();
+  console.log(session);
 
   if (typeof window !== "undefined") return null;
 
