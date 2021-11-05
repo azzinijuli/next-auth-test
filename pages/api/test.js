@@ -30,9 +30,11 @@
 //   res.redirect(`/dashboard?token=${data.id_token}`);
 // }
 
-import { getSession } from "next-auth/client";
+import jwt from "next-auth/jwt";
 
-export default async (req, res) => {
-  const session = await getSession({ req });
-  res.send(JSON.stringify(session, null, 2));
-};
+const secret = process.env.NEXT_PUBLIC_IDP_SECRET;
+
+export default async function handler(req, res) {
+  const token = await jwt.getToken({ req, secret });
+  res.send(JSON.stringify(token, null, 2));
+}
