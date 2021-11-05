@@ -30,11 +30,18 @@
 //   res.redirect(`/dashboard?token=${data.id_token}`);
 // }
 
-import jwt from "next-auth/jwt";
+import { getToken } from "next-auth/jwt";
 
 const secret = process.env.NEXT_PUBLIC_IDP_SECRET;
 
 export default async function handler(req, res) {
-  const token = await jwt.getToken(req, secret);
-  res.send(JSON.stringify(token, null, 2));
+  const token = await getToken({ req, secret });
+  if (token) {
+    // Signed in
+    console.log("JSON Web Token", JSON.stringify(token, null, 2));
+  } else {
+    // Not Signed in
+    res.status(401);
+  }
+  res.end();
 }
