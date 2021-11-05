@@ -18,7 +18,6 @@ export default async function handler(req, res) {
     // Not Signed in
     res.status(401);
   }
-  res.end();
 }
 
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
