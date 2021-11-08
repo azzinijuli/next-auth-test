@@ -5,7 +5,7 @@ export default async function handler(req, res) {
   const token = await getToken({ req, secret });
   console.log("JSON Web Token", JSON.stringify(token, null, 2));
   const stringifiedToken = JSON.stringify(token);
-  console.log("sub", stringifiedToken.sub);
+  console.log("sub", stringifiedToken.name);
   // const token =
   //   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwZXJzb25hbCIsImluc3RhbmNlIjoiNjEifQ.Uq-dOKkLtkZQppeygKvRazDig2hcBnebOIYphdFH62M";
   // if (session) {
