@@ -6,9 +6,8 @@ export default async function handler(req, res) {
   const token =
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwZXJzb25hbCIsImluc3RhbmNlIjoiNjEifQ.Uq-dOKkLtkZQppeygKvRazDig2hcBnebOIYphdFH62M";
   // Signed in
-  const baseUrlStore = "https://backoffice-staging.personal-svcs.com/"; //UAT
   const externalId = stringifiedToken.sub;
-  const newUrl = `${baseUrlStore}/v1/customers/54${externalId}}/products?status=PURCHASED,CANCELLED,EXPIRED`;
+  const newUrl = `https://backoffice-staging.personal-svcs.com/v1/customers/54${externalId}}/products?status=PURCHASED,CANCELLED,EXPIRED`;
   const response = await fetch(newUrl, {
     method: "GET",
     headers: {
