@@ -9,21 +9,19 @@ export default async function handler(req, res) {
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwZXJzb25hbCIsImluc3RhbmNlIjoiNjEifQ.Uq-dOKkLtkZQppeygKvRazDig2hcBnebOIYphdFH62M";
   if (session) {
     // Signed in
-    const baseUrlStore = "https://backoffice-staging.personal-svcs.com"; //UAT
+    const baseUrlStore = "https://backoffice-staging.personal-svcs.com/"; //UAT
     const externalId = stringifiedToken.sub;
-    const response = await fetch(
-      `${baseUrlStore}/v1/customers/54${externalId}}/products?status=PURCHASED,CANCELLED,EXPIRED`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const newUrl = `${baseUrlStore}/v1/customers/54${externalId}}/products?status=PURCHASED,CANCELLED,EXPIRED`;
+    const response = await fetch(newUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const data = await response.json();
     console.log(data);
-    res.status(200).json(data);
+    console.log(stringifiedToken.sub);
   } else {
     // Not Signed in
     res.status(401);
