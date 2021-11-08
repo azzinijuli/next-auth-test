@@ -9,7 +9,7 @@ export default async function handler(req, res) {
     const baseUrlStore = "https://backoffice-staging.personal-svcs.com"; //UAT
     const externalId = session.user?.name;
     const response = await fetch(
-      `${baseUrlStore}/v1/customers/54${externalId}}/products?status=PURCHASED,CANCELLED,EXPIRED`,
+      `${baseUrlStore}/v1/customers/${externalId}}/products?status=PURCHASED,CANCELLED,EXPIRED`,
       {
         method: "GET",
         headers: {
