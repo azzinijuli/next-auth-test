@@ -1,8 +1,9 @@
-import { getSession } from "next-auth/react";
+import { getToken } from "next-auth/jwt";
 
 export default async function handler(req, res) {
-  const session = await getSession(req);
-  console.log("session", session);
+  const secret = process.env.NEXT_PUBLIC_IDP_SECRET;
+  const token = await getToken({ req, secret });
+  console.log("JSON Web Token", JSON.stringify(token, null, 2));
   // const token =
   //   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwZXJzb25hbCIsImluc3RhbmNlIjoiNjEifQ.Uq-dOKkLtkZQppeygKvRazDig2hcBnebOIYphdFH62M";
   // if (session) {
