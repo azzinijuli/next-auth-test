@@ -3,7 +3,7 @@ import { getToken } from "next-auth/jwt";
 export default async function handler(req, res) {
   const secret = process.env.NEXT_PUBLIC_IDP_SECRET;
   const token = await getToken({ req, secret });
-  console.log("JSON Web Token", JSON.stringify(token, null, 2).name);
+  console.log("JSON Web Token", token);
   // const token =
   //   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwZXJzb25hbCIsImluc3RhbmNlIjoiNjEifQ.Uq-dOKkLtkZQppeygKvRazDig2hcBnebOIYphdFH62M";
   // if (session) {
