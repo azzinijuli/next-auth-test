@@ -16,8 +16,8 @@ export default async function handler(req, res) {
     },
   });
   const data = await response.json();
-  console.log(data);
-  console.log(stringifiedToken);
+  console.log("data", data);
+  console.log("token", stringifiedToken);
   // Not Signed in
   res.status(200).json(data);
 }
